@@ -17,7 +17,7 @@ public class Lord {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "lord")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "lord")
     private List<Planet> planets;
 
 
@@ -28,6 +28,14 @@ public class Lord {
         this.id = id;
         this.age = age;
         this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getAge() {

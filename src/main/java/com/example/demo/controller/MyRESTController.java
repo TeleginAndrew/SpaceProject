@@ -23,22 +23,24 @@ public class MyRESTController {
     @Autowired
     LordDAO lordDAO;
 
-//    @GetMapping("/planets/{id}")
-//    public Planet getPlanet(@PathVariable int id) {
-//        Planet planet = planetRepo.findAllById(id);
-//        return planet;
-//    }
+
+    @GetMapping("/planets/{id}")
+    public Planet getPlanet(@PathVariable int id) {
+        Planet planet = planetRepo.findAllById(id);
+        return planet;
+    }
+
     @PostMapping("/planets")
-    public Planet addPlanet(@RequestBody Planet planet){
+    public Planet addPlanet(@RequestBody Planet planet) {
         planetRepo.save(planet);
         return planet;
     }
 
     @DeleteMapping("/planets/{id}")
-    public String deletePlanet(@PathVariable int id){
+    public String deletePlanet(@PathVariable int id) {
         Planet planet = planetRepo.findAllById(id);
         planetRepo.delete(planet);
-        return "Planet with ID = " + id + "was deleted";
+        return "Planet with ID = " + id + " was deleted";
     }
 
     @PostMapping("/lord")
@@ -48,20 +50,16 @@ public class MyRESTController {
     }
 
     @GetMapping("/lords")
-    public List<Lord> showTopYoungestLords(){
-//        List<Lord> lords = lordRepo.findAll();
-       List<Lord> lords =  lordDAO.showTopYoungestLords();
-
-//       List<Lord> lordsByAge =  lordRepo.findLordsByAgeAndOrderByAge(lords);
+    public List<Lord> showTopYoungestLords() {
+        List<Lord> lords = lordDAO.showTopYoungestLords();
         return lords;
     }
-    @GetMapping("/guys")
-    public List<Lord> showDoNothingLords(){
+
+    @GetMapping("/lords-do-nothing")
+    public List<Lord> showDoNothingLords() {
         List<Lord> lords = lordDAO.showDoNothingLords();
         return lords;
     }
-
-
 
 
 }

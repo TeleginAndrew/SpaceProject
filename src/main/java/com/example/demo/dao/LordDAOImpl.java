@@ -1,6 +1,7 @@
 package com.example.demo.dao;
 
 import com.example.demo.entity.Lord;
+import com.example.demo.entity.Planet;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -32,4 +33,16 @@ public class LordDAOImpl implements LordDAO {
         List<Lord> lords = session.createQuery("from Lord l left join Planet p on l.id = p.lord where p.lord is null ").getResultList();
         return lords;
     }
+
+
+    @Override
+    public void addLordUsePlanet(Planet planet, Lord lord) {
+        Session session = entityManager.unwrap(Session.class);
+        Query query = session.createQuery("update Planet p SET lord.id = :lord where p.id = :planet");
+        query.setParameter("lord",lord.getId());
+        query.setParameter("planet",planet.getId());
+//       query.getResultList();
+//        entityManager.persist(query);
+    }
 }
+

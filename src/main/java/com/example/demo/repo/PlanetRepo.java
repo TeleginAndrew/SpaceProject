@@ -4,9 +4,10 @@ import com.example.demo.entity.Planet;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
-public interface PlanetRepo extends JpaRepository<Planet,Long> {
+public interface PlanetRepo extends JpaRepository<Planet, Long> {
     Planet findAllById(int id);
 
+    Planet findById(int id);
 
 
 }

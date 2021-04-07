@@ -41,4 +41,12 @@ public class Planet {
     public void setName(String name) {
         this.name = name;
     }
+
+    public Lord getLord() {
+        return lord;
+    }
+
+    public void setLord(Lord lord) {
+        this.lord = lord;
+    }
 }
