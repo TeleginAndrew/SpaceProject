@@ -8,6 +8,7 @@ import java.util.List;
 public class Lord {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 
@@ -24,10 +25,23 @@ public class Lord {
     public Lord() {
     }
 
+    public Lord(int age, String name, List<Planet> planets) {
+        this.age = age;
+        this.name = name;
+        this.planets = planets;
+    }
+
     public Lord(int id, int age, String name) {
         this.id = id;
         this.age = age;
         this.name = name;
+    }
+
+    public Lord(int id, int age, String name, List<Planet> planets) {
+        this.id = id;
+        this.age = age;
+        this.name = name;
+        this.planets = planets;
     }
 
     public int getId() {

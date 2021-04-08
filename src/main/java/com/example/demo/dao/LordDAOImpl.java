@@ -41,8 +41,8 @@ public class LordDAOImpl implements LordDAO {
         Query query = session.createQuery("update Planet p SET lord.id = :lord where p.id = :planet");
         query.setParameter("lord",lord.getId());
         query.setParameter("planet",planet.getId());
-//       query.getResultList();
-//        entityManager.persist(query);
+       query.getResultList();
+
     }
 }
 

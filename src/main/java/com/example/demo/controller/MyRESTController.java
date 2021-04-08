@@ -61,5 +61,4 @@ public class MyRESTController {
         return lords;
     }
 
-
 }
