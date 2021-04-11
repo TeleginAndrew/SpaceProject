@@ -27,10 +27,16 @@ public class LordDAOImpl implements LordDAO {
         return lords;
     }
 
+//    @Override
+//    public List<Lord> showDoNothingLords() {
+//        Session session = entityManager.unwrap(Session.class);
+//        List<Lord> lords = session.createQuery("from Lord l left join Planet p on l.id = p.lord where p.lord is null ").getResultList();
+//        return lords;
+//    }
     @Override
     public List<Lord> showDoNothingLords() {
         Session session = entityManager.unwrap(Session.class);
-        List<Lord> lords = session.createQuery("from Lord l left join Planet p on l.id = p.lord where p.lord is null ").getResultList();
+        List<Lord> lords = session.createQuery("select Lord.id,Lord.name,Lord.age,Planet.lord from Lord l left join Planet p on l.id = p.lord where p.lord is null ").getResultList();
         return lords;
     }
 

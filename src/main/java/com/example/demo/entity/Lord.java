@@ -25,6 +25,12 @@ public class Lord {
     public Lord() {
     }
 
+    public Lord(String name,int age) {
+        this.name = name;
+        this.age = age;
+
+    }
+
     public Lord(int age, String name, List<Planet> planets) {
         this.age = age;
         this.name = name;

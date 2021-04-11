@@ -57,7 +57,8 @@ public class MyRESTController {
 
     @GetMapping("/lords-do-nothing")
     public List<Lord> showDoNothingLords() {
-        List<Lord> lords = lordDAO.showDoNothingLords();
+//        List<Lord> lords = lordDAO.showDoNothingLords();
+        List<Lord> lords = lordRepo.findAllByPlanetsNull();
         return lords;
     }
 
